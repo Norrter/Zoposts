@@ -21,7 +21,7 @@ class PostController extends BaseController
     function index(FilterRequest $request) {
         $data = $request->validated();
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
-        $posts = Post::filter($filter)->paginate(10);
+        $posts = Post::filter($filter)->paginate(12);
         $categories = Category::all();
         return view('posts', compact('posts', 'categories'));
     }

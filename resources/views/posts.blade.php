@@ -104,7 +104,7 @@
         <!-- Пагинация -->
         @if($posts->hasPages())
             <div class="mt-4">
-                {{ $posts->withQueryString()->links() }}
+                {{ $posts->withQueryString()->links('pagination') }}
             </div>
         @endif
     </div>
