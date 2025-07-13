@@ -26,7 +26,8 @@ class StoreRequest extends FormRequest
             'content' => 'string|required',
             'image' => 'string',
             'category_id' => 'required',
-            'tags[]' => ''
+            'tags' => 'array',
+            'tags.*' => 'exists:tags,id'
         ];
     }
 }

@@ -8,37 +8,64 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google Fonts - моноширинный шрифт для хакерского стиля -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Hero секция с более тёмным градиентом и увеличенным нижним отступом */
+        body {
+            background-color: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Ubuntu Mono', monospace;
+            line-height: 1.6;
+        }
+
+        /* Навигационное меню в хакерском стиле */
+        .navbar {
+            background-color: #000 !important;
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-brand, .nav-link {
+            color: #00ff00 !important;
+        }
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        .nav-link.active {
+            color: #ffffff !important;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Hero секция */
         .about-hero {
-            background: linear-gradient(120deg, #1b3a5a 0%, #2a4d75 100%);
+            background: linear-gradient(135deg, #000000 0%, #0a2e0a 100%);
             min-height: 440px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 8px 32px rgba(27, 58, 90, 0.6);
-            border-radius: 0 0 24px 24px;
-            padding-bottom: 80px; /* увеличенный нижний отступ */
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 80px;
         }
         .about-hero .overlay {
-            background: rgba(0, 0, 0, 0.55);
-            border-radius: 24px;
+            background: rgba(0, 15, 0, 0.7);
+            border: 1px solid #00ff00;
             padding: 70px 40px;
             max-width: 700px;
             margin: auto;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
             text-align: center;
         }
         .about-hero h1 {
-            color: #cce6ff;
-            text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.8);
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
             font-size: 3rem;
             font-weight: 700;
+            letter-spacing: 2px;
         }
         .about-hero p {
-            color: #b3d1ff;
-            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+            color: #00cc00;
             font-size: 1.35rem;
             margin-bottom: 0;
         }
@@ -49,67 +76,113 @@
             margin-bottom: 40px;
         }
         .feature-card {
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(58, 153, 216, 0.1);
+            background: #000;
+            border: 1px solid #00ff00;
+            border-radius: 0;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
             padding: 32px 24px;
             text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 30px; /* увеличенный отступ сверху */
+            transition: all 0.3s;
+            margin-top: 30px;
         }
         .feature-card:hover {
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: 0 10px 32px rgba(110, 193, 228, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+            background: #001a00;
         }
         .feature-icon {
             font-size: 2.7rem;
-            color: #3a99d8;
+            color: #00ff00;
             margin-bottom: 18px;
+        }
+        .feature-card h5 {
+            color: #ffffff;
+            text-shadow: 0 0 5px #00ff00;
         }
 
         /* Основной контент */
         .about-section {
-            background: #f0f8ff;
-            border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(58, 153, 216, 0.12);
+            background: #000;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
             padding: 48px 32px;
             margin-bottom: 40px;
-            color: #1a3e6e;
+            color: #00cc00;
         }
         .about-section h2 {
-            color: #3a99d8;
+            color: #00ff00;
             font-weight: 700;
             margin-bottom: 18px;
-        }
-        .about-section p {
-            font-size: 1.13rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
         }
 
         /* Отзыв */
         .testimonial {
-            background: linear-gradient(110deg, #e6f2ff 70%, #cce5ff 100%);
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(58, 153, 216, 0.12);
+            background: #000;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
             padding: 32px 28px;
             margin-bottom: 40px;
             text-align: center;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            color: #1a3e6e;
-            font-style: italic;
+            color: #00cc00;
         }
         .testimonial .bi {
-            color: #3a99d8;
+            color: #00ff00;
             font-size: 2.2rem;
         }
         .testimonial .author {
             font-weight: 700;
-            color: #3a99d8;
+            color: #00ff00;
             margin-top: 12px;
-            font-style: normal;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #000 !important;
+            border-top: 1px solid #00ff00;
+            color: #00cc00 !important;
+        }
+        footer h5 {
+            color: #00ff00 !important;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+        }
+        footer a {
+            color: #00cc00 !important;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        footer hr {
+            background-color: #00ff00 !important;
+        }
+
+        /* Эффект мигающего курсора */
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Эффект загрузки/обработки */
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end);
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
         }
 
         @media (max-width: 768px) {
@@ -124,10 +197,10 @@
     </style>
 </head>
 <body>
-<!-- Навигационное меню (оставлено без изменений) -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- Навигационное меню -->
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href={{ route('home') }}>ZOposts</a>
+        <a class="navbar-brand" href={{ route('home') }}>ZOposts<span class="cursor">_</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -150,8 +223,8 @@
 <!-- Hero секция -->
 <section class="about-hero">
     <div class="overlay">
-        <h1>О ZOposts</h1>
-        <p>Платформа, где рождаются лучшие статьи, блоги и настоящие отзывы.<br>Узнайте, кто мы, и почему тысячи людей выбирают ZOposts!</p>
+        <h1>> О ZOposts</h1>
+        <p class="typing-effect">Платформа для настоящих кибер-энтузиастов. Где рождаются идеи и взламываются стереотипы.</p>
     </div>
 </section>
 
@@ -160,84 +233,102 @@
     <div class="row g-4">
         <div class="col-md-4">
             <div class="feature-card h-100">
-                <div class="feature-icon mb-2"><i class="bi bi-people-fill"></i></div>
-                <h5 class="fw-bold mb-2">Живое сообщество</h5>
-                <p>Объединяем авторов и читателей, создавая атмосферу доверия, поддержки и обмена опытом.</p>
+                <div class="feature-icon mb-2"><i class="bi bi-terminal"></i></div>
+                <h5 class="fw-bold mb-2">> Кибер-сообщество</h5>
+                <p>Объединяем хакеров, разработчиков и всех, кто мыслит вне рамок. Обмен знаниями и опытом.</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="feature-card h-100">
-                <div class="feature-icon mb-2"><i class="bi bi-journal-richtext"></i></div>
-                <h5 class="fw-bold mb-2">Качественный контент</h5>
-                <p>Публикуем только проверенные статьи, экспертные обзоры и честные отзывы на актуальные темы.</p>
+                <div class="feature-icon mb-2"><i class="bi bi-shield-lock"></i></div>
+                <h5 class="fw-bold mb-2">> Защищенный контент</h5>
+                <p>Только проверенная информация. Никаких фейков - только чистые данные и факты.</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="feature-card h-100">
-                <div class="feature-icon mb-2"><i class="bi bi-lightbulb-fill"></i></div>
-                <h5 class="fw-bold mb-2">Вдохновение и развитие</h5>
-                <p>Помогаем находить новые идеи, делиться знаниями и расти вместе с нашим сообществом.</p>
+                <div class="feature-icon mb-2"><i class="bi bi-code-slash"></i></div>
+                <h5 class="fw-bold mb-2">> Развитие навыков</h5>
+                <p>Помогаем прокачивать скиллы в программировании, кибербезопасности и не только.</p>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Основной контент "О нас" -->
-<div class="container about-section shadow-lg">
-    <h2>Наша история</h2>
+<div class="container about-section">
+    <h2>> Наша история</h2>
     <p>
-        ZOposts появился в 2022 году как проект небольшой команды энтузиастов, мечтавших создать пространство для свободного обмена знаниями и вдохновением. Мы начинали с простого блога, а сегодня ZOposts - это динамичная платформа, где каждый может найти свой голос и аудиторию.
+        ZOposts начался как подпольный проект в 2022 году. Сначала это был просто блог о кибербезопасности, но сейчас мы выросли в полноценную платформу для всех, кто хочет выйти за рамки обыденного.
     </p>
-    <h2>Миссия и ценности</h2>
+    <h2>> Миссия и ценности</h2>
     <p>
-        Наша миссия - делать качественный контент доступным каждому. Мы ценим честность, открытость и уважение к мнению других. На ZOposts нет места фейкам и предвзятости - только проверенные факты, личный опыт и живое общение.
+        Наша цель - создавать пространство для свободного обмена знаниями без цензуры. Мы ценим анонимность, безопасность и право на информацию.
     </p>
-    <h2>Что мы предлагаем</h2>
+    <h2>> Что мы предлагаем</h2>
     <p>
-        Каждый день мы публикуем свежие статьи, экспертные обзоры, личные блоги и честные отзывы. Здесь вы найдете материалы на самые разные темы - от технологий и образования до путешествий, саморазвития и творчества. Мы поддерживаем авторов, развиваем сообщество и всегда открыты для новых идей!
+        Экспертные статьи по кибербезопасности, программированию, этичному хакингу. Новости из мира IT, которые вы не найдете в мейнстрим-медиа. Возможность анонимно делиться знаниями.
     </p>
-    <h2>Присоединяйтесь!</h2>
+    <h2>> Присоединяйтесь!</h2>
     <p>
-        Хотите делиться своими мыслями, читать интересные истории или просто быть в курсе новостей? Присоединяйтесь к ZOposts - вместе мы делаем интернет лучше!
+        Хотите быть частью нашего сообщества? Регистрируйтесь и начинайте делиться знаниями уже сегодня. Помните: с большими знаниями приходит большая ответственность.
     </p>
 </div>
 
 <!-- Отзыв пользователя -->
-<div class="testimonial shadow">
-    <i class="bi bi-chat-quote-fill"></i>
+<div class="container testimonial">
+    <i class="bi bi-quote"></i>
     <p class="mt-3 mb-2">
-        «ZOposts - это место, где я нашёл единомышленников и смог делиться своим опытом. Здесь всегда интересно, уютно и по-настоящему живо!»
+        «ZOposts - это место, где я нашел единомышленников и могу обсуждать темы, которые нигде больше не поднимаются. Настоящая кибер-тусовка!»
     </p>
-    <div class="author">- Анна, постоянный автор</div>
+    <div class="author">- Anonymous, участник с 2023</div>
 </div>
 
 <!-- Футер -->
-<footer class="text-center bg-dark text-white py-4">
+<footer class="text-center py-4">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-3 mb-md-0">
-                <h5>ZOposts</h5>
-                <p>Лучшие статьи на самые актуальные темы</p>
+                <h5>> ZOposts</h5>
+                <p>Хакерский блог нового поколения</p>
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
-                <h5>Ссылки</h5>
+                <h5>> Ссылки</h5>
                 <ul class="list-unstyled">
-                    <li><a href={{ route('home') }} class="text-white text-decoration-none">Главная</a></li>
-                    <li><a href={{ route('post.index') }} class="text-white text-decoration-none">Посты</a></li>
-                    <li><a href={{ route('show_contacts') }} class="text-white text-decoration-none">Контакты</a></li>
+                    <li><a href={{ route('home') }}>Главная</a></li>
+                    <li><a href={{ route('post.index') }}>Посты</a></li>
+                    <li><a href={{ route('show_contacts') }}>Контакты</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
-                <h5>Контакты</h5>
-                <p>email: info@zoposts.com<br />телефон: +1234567890</p>
+                <h5>> Контакты</h5>
+                <p>email: secure@zoposts.onion<br />PGP: 0x1A2B3C4D5E6F7890</p>
             </div>
         </div>
-        <hr class="bg-light" />
-        <p class="mb-0">&copy; 2025 ZOposts. Все права защищены.</p>
+        <hr />
+        <p class="mb-0">&copy; 2025 ZOposts. Все права защищены. || Access granted.</p>
     </div>
 </footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Дополнительные скрипты для эффектов -->
+<script>
+    // Эффект мигающего курсора
+    document.addEventListener('DOMContentLoaded', function() {
+        const cursor = document.querySelector('.cursor');
+        setInterval(() => {
+            cursor.style.opacity = cursor.style.opacity == '0' ? '1' : '0';
+        }, 500);
+
+        // Эффект "печатающегося текста" для других элементов
+        const elements = document.querySelectorAll('.typing-effect');
+        elements.forEach((el, index) => {
+            setTimeout(() => {
+                el.style.animation = `typing ${el.textContent.length/10}s steps(${el.textContent.length}, end)`;
+            }, index * 300);
+        });
+    });
+</script>
 </body>
 </html>
