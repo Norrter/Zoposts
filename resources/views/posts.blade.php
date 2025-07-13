@@ -127,3 +127,19 @@
         }
     </style>
 @endsection
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Находим все пункты меню и удаляем класс active
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Находим ссылку "Посты" и добавляем класс active
+            const postsLink = document.querySelector('a[href="{{ route('post.index') }}"]');
+            if (postsLink) {
+                postsLink.classList.add('active');
+            }
+        });
+    </script>
+@endsection

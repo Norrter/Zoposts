@@ -132,7 +132,7 @@
 </nav>
 
 @yield('content')
-
+@yield('scripts')
 <!-- Футер -->
 <footer class="text-center py-4">
     <div class="container">
