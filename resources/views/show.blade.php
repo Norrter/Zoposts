@@ -75,19 +75,6 @@
                     <a href="{{ url()->previous() }}" class="btn btn-outline-secondary" style="border-color: #666; color: #666;">
                         <i class="bi bi-arrow-left me-1"></i> > Назад
                     </a>
-
-                    <div>
-                        <a href="{{ route('post.edit',$post->id) }}" class="btn btn-outline-primary me-2" style="border-color: #00ff00; color: #00ff00;">
-                            <i class="bi bi-pencil me-1"></i> > Изменить
-                        </a>
-                        <form action="{{ route('post.destroy', $post->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger" style="border-color: #ff5555; color: #ff5555;" onclick="return confirm('Вы уверены?')">
-                                <i class="bi bi-trash me-1"></i> > Удалить
-                            </button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

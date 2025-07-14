@@ -111,14 +111,14 @@
 <!-- Навигационное меню -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href={{ route('home') }}>ZOposts<span class="cursor">_</span></a>
+        <a class="navbar-brand" href={{ route('index') }}>ZOposts<span class="cursor">_</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href={{ route('home') }}>Главная</a>
+                    <a class="nav-link active" href={{ route('index') }}>Главная</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href={{ route('post.index') }}>Посты</a>
@@ -126,6 +126,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href={{ route('show_contacts') }}>О нас</a>
                 </li>
+
+                @can('view', auth()->user())
+                <li class="nav-item">
+                    <a class="nav-link" href={{ route('admin.dashboard') }}>Админка</a>
+                </li>
+                @endcan
             </ul>
         </div>
     </div>

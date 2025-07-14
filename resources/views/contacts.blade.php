@@ -200,14 +200,14 @@
 <!-- Навигационное меню -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href={{ route('home') }}>ZOposts<span class="cursor">_</span></a>
+        <a class="navbar-brand" href={{ route('index') }}>ZOposts<span class="cursor">_</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href={{ route('home') }}>Главная</a>
+                    <a class="nav-link" href={{ route('index') }}>Главная</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href={{ route('post.index') }}>Посты</a>
@@ -215,6 +215,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href={{ route('show_contacts') }}>О нас</a>
                 </li>
+                @can('view', auth()->user())
+                <li class="nav-item">
+                    <a class="nav-link" href={{ route('admin.dashboard') }}>Админка</a>
+                </li>
+                @endcan
             </ul>
         </div>
     </div>
@@ -223,7 +228,7 @@
 <!-- Hero секция -->
 <section class="about-hero">
     <div class="overlay">
-        <h1>> О ZOposts</h1>
+        <h1>>  О ZOposts</h1>
         <p class="typing-effect">Платформа для настоящих кибер-энтузиастов. Где рождаются идеи и взламываются стереотипы.</p>
     </div>
 </section>
@@ -234,7 +239,7 @@
         <div class="col-md-4">
             <div class="feature-card h-100">
                 <div class="feature-icon mb-2"><i class="bi bi-terminal"></i></div>
-                <h5 class="fw-bold mb-2">> Кибер-сообщество</h5>
+                <h5 class="fw-bold mb-2">>Кибер-сообщество</h5>
                 <p>Объединяем хакеров, разработчиков и всех, кто мыслит вне рамок. Обмен знаниями и опытом.</p>
             </div>
         </div>

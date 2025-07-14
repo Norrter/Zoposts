@@ -3,9 +3,6 @@
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-5">
             <h1 class="fw-bold mb-0" style="color: #00ff00; border-bottom: 1px solid #00ff00; padding-bottom: 10px;">> Все посты</h1>
-            <a href="{{ route('post.create') }}" class="btn btn-outline-primary" style="border-color: #00ff00; color: #00ff00;">
-                <i class="bi bi-plus me-1"></i> > Создать пост
-            </a>
         </div>
 
         <!-- Фильтры -->

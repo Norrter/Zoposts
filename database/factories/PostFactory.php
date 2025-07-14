@@ -20,9 +20,9 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(5), // Генерирует предложение из 5 слов
-            'content' => $this->faker->paragraphs(3, true), // Несколько параграфов
-            'image' => $this->faker->imageUrl(640, 480, 'technics'), // Технические изображения
+            'title' => $this->faker->sentence(5),
+            'content' => $this->faker->paragraphs(3, true),
+            'image' => $this->faker->imageUrl(640, 480, 'technics'),
             'likes' => random_int(1, 3000),
             'category_id' => Category::inRandomOrder()->first()->id,
         ];

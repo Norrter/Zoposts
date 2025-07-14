@@ -2,21 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
 
-
-
-class HomeController extends BaseController
+class HomeController extends Controller
 {
-    function index(){
-        $latestPosts = Post::latest()->take(6)->get();
-        return view('home', compact('latestPosts'));
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-    public function contacts(){
-        return view('contacts');
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('home');
     }
 }
