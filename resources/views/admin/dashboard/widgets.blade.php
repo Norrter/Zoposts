@@ -1,10 +1,17 @@
 @php
     $modelClass = 'App\\Models\\' . $model;
     $count = $modelClass::count();
+    // Определяем маршрут на основе модели
+    $route = match($model) {
+        'Post' => 'admin.posts.index',
+        'Category' => 'admin.category.index',
+        'Tag' => 'admin.tag.index',
+        default => 'admin.dashboard'
+    };
 @endphp
 
 <div class="col-md-6 col-lg-3 mb-4">
-    <div class="card h-100 admin-card" style="background: #000; border: 1px solid var(--admin-accent);">
+    <div class="card h-100 admin-card" style="background: #000; border: 1px solid var(--admin-accent); cursor: pointer;" onclick="window.location.href='{{ route($route) }}'">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
@@ -17,7 +24,7 @@
             </div>
         </div>
         <div class="card-footer" style="background: #000; border-top: 1px solid var(--admin-accent);">
-            <a href="#" class="text-decoration-none d-flex align-items-center admin-link">
+            <a href="{{ route($route) }}" class="text-decoration-none d-flex align-items-center admin-link">
                 Управление {{ mb_strtolower($title) }}
                 <i class="bi bi-arrow-right ms-2 transition-all"></i>
             </a>
@@ -53,5 +60,11 @@
 
     .admin-link:hover .transition-all {
         transform: translateX(3px);
+    }
+
+    .admin-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        transition: all 0.3s;
     }
 </style>

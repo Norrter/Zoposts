@@ -128,10 +128,45 @@
                 </li>
 
                 @can('view', auth()->user())
-                <li class="nav-item">
-                    <a class="nav-link" href={{ route('admin.dashboard') }}>Админка</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={{ route('admin.dashboard') }}>Админка</a>
+                    </li>
                 @endcan
+            </ul>
+
+            <!-- Правая часть навигации (авторизация/профиль) -->
+            <ul class="navbar-nav ms-auto">
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-1"></i>
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #000; border: 1px solid #00ff00;">
+                            <li><a class="dropdown-item" href="#" style="color: #00ff00;">Профиль</a></li>
+                            <li><hr class="dropdown-divider" style="border-color: #00ff00;"></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item" style="color: #ff5555;">
+                                        <i class="bi bi-box-arrow-right me-1"></i> Выйти
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success me-2" href="{{ route('login') }}" style="border-color: #00ff00; color: #00ff00;">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Войти
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-success" href="{{ route('register') }}" style="background-color: #003300; border-color: #00ff00; color: #00ff00;">
+                            <i class="bi bi-person-plus me-1"></i> Регистрация
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

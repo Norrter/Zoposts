@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\admin\AdminCategoryController;
 use App\Http\Controllers\admin\AdminPostController;
+use App\Http\Controllers\admin\AdminTagController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +33,6 @@ Route::group([
 ], function () {
     Route::get('/dashboard', [AdminPostController::class, 'dashboard'])->name('admin.dashboard');
 
-    // Посты
     Route::get('/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
     Route::get('/posts/create', [AdminPostController::class, 'create'])->name('admin.posts.create');
     Route::post('/posts', [AdminPostController::class, 'store'])->name('admin.posts.store');
@@ -43,8 +43,22 @@ Route::group([
 
 
     Route::get('/categories', [AdminCategoryController::class, 'index'])->name('admin.category.index');
+    Route::get('/categories/create', [AdminCategoryController::class, 'create'])->name('admin.category.create');
+    Route::post('/categories', [AdminCategoryController::class, 'store'])->name('admin.category.store');
+    Route::get('/categories/{category}/edit', [AdminCategoryController::class, 'edit'])->name('admin.category.edit');
+    Route::put('/categories/{category}', [AdminCategoryController::class, 'update'])->name('admin.category.update');
+    Route::delete('/categories/{category}', [AdminCategoryController::class, 'destroy'])->name('admin.category.destroy');
+
+    Route::get('/tags', [AdminTagController::class, 'index'])->name('admin.tag.index');
+    Route::get('/tags/create', [AdminTagController::class, 'create'])->name('admin.tag.create');
+    Route::post('/tags', [AdminTagController::class, 'store'])->name('admin.tag.store');
+    Route::get('/tags/{tag}/edit', [AdminTagController::class, 'edit'])->name('admin.tag.edit');
+    Route::put('/tags/{tag}', [AdminTagController::class, 'update'])->name('admin.tag.update');
+    Route::delete('/tags/{tag}', [AdminTagController::class, 'destroy'])->name('admin.tag.destroy');
+
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

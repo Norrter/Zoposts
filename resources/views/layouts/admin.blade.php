@@ -145,13 +145,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link admin-nav-link" href="#">
+                    <a class="nav-link admin-nav-link" href="{{ route('admin.tag.index') }}">
                         <i class="bi bi-tags me-2"></i> Теги
                     </a>
                 </li>
                 <li class="nav-item mt-4">
-                    <a class="nav-link admin-nav-link" href="#">
-                        <i class="bi bi-gear me-2"></i> Настройки
+                    <a class="nav-link admin-nav-link" href="{{ route('index') }}">
+                        <i class="bi bi-house-door me-2"></i> На главную
                     </a>
                 </li>
                 <li class="nav-item">
@@ -166,7 +166,6 @@
             </ul>
         </div>
     </div>
-
     <!-- Основной контент -->
     <div class="flex-grow-1">
         <!-- Навбар -->
